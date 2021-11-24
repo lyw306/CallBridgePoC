@@ -1,0 +1,29 @@
+server:
+  port: 4567
+
+spring:
+  datasource:
+#    driver-class-name: org.hsqldb.jdbcDriver
+#    url: jdbc:hsqldb:file:.\localdb\dragon;shutdown=true
+#    username: root
+#    password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test
+      username: root
+      password: 123456
+
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+      fail-on-empty-beans: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+      jdbc:
+        #每批500条提交
+        batch_size: 100000
+        batch_versioned_data: true
+      order_inserts: true
+      order_updates: true
+    show-sql: false
+
